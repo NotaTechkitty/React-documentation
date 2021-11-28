@@ -110,5 +110,117 @@ With the clock ticking every second, the UI has to update its own state. A metho
 - State is locally in its own component.
 - Component states are passed down to child component and the child received it as props without knowing where props came from. 
 
+## Event Handling
 
+In React, we don't need to call addEventListener, just provide the listener when DOM element initially rendered.
+Example handling event button onlick in Counter component
+
+```JavaScript
+    import React from "react";
+
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+    this.increCounter = this.increCounter.bind(this);
+  }
+  increCounter() {
+    this.setState({ count: this.state.count + 1 });
+  }
+  render() {
+    return (
+      <div>
+        <h2>this is counter : {this.state.count}</h2>
+        <button type="button" onClick={this.increCounter}>
+          Increase counter
+        </button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+Class method needs to be bound to ```this``` or else, it will retrun undefined when the function called.
+
+2 different ways without binding :
+- Class fields syntax
+```JavaScript
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+  //Class fields
+  increCounter = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+  render() {
+    return (
+      <div>
+        <h2>this is counter : {this.state.count}</h2>
+        <button type="button" onClick={this.increCounter}>
+          Increase counter
+        </button>
+      </div>
+    );
+  }
+}
+```
+- Arrow function
+```JavaScript
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+    };
+  }
+  increCounter() {
+    this.setState({ count: this.state.count + 1 });
+  }
+  render() {
+      // Class fields
+    return (
+      <div>
+        <h2>this is counter : {this.state.count}</h2>
+        <button type="button" onClick={() => this.increCounter()}> 
+          Increase counter
+        </button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+## Conditional Rendering
+
+Elements render with a condition props.
+
+```JavaScript
+import React from "react";
+
+function GreetingAsGuest() {
+  return <h1>you are guest</h1>;
+}
+
+function GreetingAsHost() {
+  return <h1>Welcome host</h1>;
+}
+
+function GreetUser(props) {
+  if (!props.isLoggin) {
+    return <GreetingAsGuest />;
+  } else {
+    return <GreetingAsHost />;
+  }
+}
+
+export default GreetUser;
+```
 
