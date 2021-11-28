@@ -2,7 +2,7 @@
 ### DOM ( Document Object Model )
 DOM is a structured representation of HTML element that are presented in a webpage or web-app. DOM represent the entire UI of the application. For example :
 
-![DOM example](Image\DOM_example.PNG "DOM example")
+![DOM example](Image/DOM_example.PNG)
 
 Each UI element is a node in DOM tree. DOM is useful  helping developer modify specified content and update through method : getElementById(), getElementByClass(). 
 
@@ -98,6 +98,17 @@ With the clock ticking every second, the UI has to update its own state. A metho
 - ComponentDidMount() : run after the component rendered the first time.
 - ComponentDidUpdate() : run when the state of the component is changed and triggers rerendering.
 - ComponentWillUnmount : get the state out of the DOM.
+
+#### Using state correctly
+
+- Don't modify directly state, use setState.
+- setState can be used with both object and function.
+- Many states can updated seperately and be shalowly merged.
+
+#### Data Flow 
+
+- State is locally in its own component.
+- Component states are passed down to child component and the child received it as props without knowing where props came from. 
 
 
 
