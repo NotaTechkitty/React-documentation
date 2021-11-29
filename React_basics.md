@@ -219,8 +219,66 @@ function GreetUser(props) {
   } else {
     return <GreetingAsHost />;
   }
+  // greet as a guest if not logged in, otherwise greet as admin
 }
 
 export default GreetUser;
 ```
+### Using inline if-else condition with operator &&
+- return true then render the element after it.
+- return false then ignore and skip the element.
+
+if condition return false, the element will be skipped but return falsy expression
+### Using inline if-else condition with condition ? component_A : component_B
+```JavaScript
+<div>
+  {isLoggedIn? <WelcomeUserScreen/> : <SignInScreen/> }
+</div>
+```
+### Prevent rendering with condition
+
+## List and Keys
+
+### Render multiple component
+
+we can render multiple components using map() function
+
+```JavaScript
+const names = [Thien, Tan, Khoa]
+<div>
+  {names.map(name=>
+    <Greeting name={name}/>  
+  )}
+<div>
+```
+when the function, there would a warning that a **key** should provided for the list of name create by map() function.
+
+### key
+- Key must be unique
+- Each items of list component should have a keys to identify which item is changed, added, removed
+- Recommend not use index for key. It's best chossing data id as key when rendering multiple reuse component. Use index when items don't change position.
+
+```JavaScript
+const userusers = [
+  {
+    id:1,
+    name:Thien,
+  },
+  {
+    id:2,
+    name:Thien,
+  },
+  {
+    id:3,
+    name:Thien,
+  }
+]
+<div>
+  {users((name, id)=>
+    <Greeting name={name} key={id/>  
+  )}
+</div>
+
+```
+
 
