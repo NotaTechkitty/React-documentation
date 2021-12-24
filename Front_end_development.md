@@ -28,7 +28,7 @@ CSR model :
 ![DOM example](Image/CSR.png)
 
 How it works:
--   Server sending raw data or computed data to browser. 
+-  Server sending raw data or computed data to browser. 
 - Browser excutes and render webpage.
 - The page is now ready both **viewable and interactable** for the first time render.
 
