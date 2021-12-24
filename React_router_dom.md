@@ -112,6 +112,9 @@ Location shows where the webpage is now.  A location object never mutated so can
 
 ### match
 A match object  contains information how a Route is matched with url.
+- url (string)
+- path (string)
+- isExact return true if path and url are the same.
 - params (object) : pairs parsed from url corresponding the dynamic segment of the path.
 ## Route
 
@@ -229,4 +232,6 @@ Return an object of key/value pairs of URL parameters.
 const params = useParams();
 ```
 ### useRouteMatch
+
+
 

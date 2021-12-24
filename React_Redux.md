@@ -22,7 +22,9 @@ export function selectData(data){
 }
 ```
 #### Reducer :
-- Function that receives an action and based on its type and payload to handle the logic updating state in the store.
+- Function that receives an action and the previous state and based on its type and payload to handle the logic updating state in the store.
+- Not changing the value of state, but update the new state.
+- Handle complicated function and logic.
 ## Redux with async event
 Handle async event such as complicated computed state required time, API call, ...
 
