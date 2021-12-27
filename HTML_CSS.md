@@ -1,6 +1,6 @@
 ## Box model
 Basic technique in CSS. Consider all CSS element as a box.
-It's a set of rule that Browser uses to determind the size of the element.
+It's a set of rule that Browser uses to determined the size of the element.
 
 ![DOM example](Image/box_model.PNG)
 
@@ -17,6 +17,20 @@ It's a set of rule that Browser uses to determind the size of the element.
   - min-content : element width will fit the longhest part in content.
   - max-content : element width will fit all the content width.
   - fit-content : a hybrid between the min-content and max-content. It will dynamicly change between min-content and max content if necessary.
+
+```css
+.text-box {
+  text-transform: uppercase;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
+  border: 5px solid;
+  padding: 2rem;
+
+  /* The important extrinsic width */
+  width: 320px;
+}
+```
 
 - inline, block, inline-block:
   - Inline : inline dislay doesn't respect margin top, bottom and padding. All elements on the same line.
@@ -67,10 +81,29 @@ a::after {
 
 Complex selector : Combinator
 
-- Descendant combinator: apply to child and grand child ( child of child ) of the the element.
+- Descendant combinator: apply to child and grand child ( child of child ) of the the element. 
+```css
+    div > p{}
+```
 - Child combinator: apply to child only of the element.
+```css
+    div > p{}
+```
 - Sibling combinator: apply to sibling ( same parent )
+
+Next sibling ( adjacent)
+```css
+    div + p{}
+```
+General sibling ( all siblings execpt itself)
+```css
+    div ~ p{}
+```
 - Compound combinator: apply to child of child.
+```css
+    div.myclass
+```
+=> Increase the specificity
 ## Cascade
  Algorithm that defines how to combine property values originating from different sources.
  - user-agent : browser
@@ -96,6 +129,9 @@ Which has greater level of specificity will apply its CSS rule.
 - IDs : +100
 - Classes, attributes and pseudo-class : +10
 - Elements and pseudo-elements : +1
+
+## Inheritance
+
 ## Notes
 ### Note
 

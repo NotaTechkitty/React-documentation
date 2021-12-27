@@ -1,6 +1,9 @@
 # Notes
 ## Common mistakes
-import properly
+
+1. import properly
+2. CSS cascade rules
+3. 
 ## Clean code
 ### Define frequent variables :
 Instead of 
